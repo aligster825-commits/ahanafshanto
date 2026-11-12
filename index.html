@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a2a78">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Ahanaf Shanto</title>
+  <meta name="description" content="The interactive portfolio of Ahanaf Shanto: videographer, video editor, graphic designer and AI visualizer in Dhaka. Explore my work on a tiny computer in your browser.">
+  <meta property="og:title" content="Ahanaf Shanto">
+  <meta property="og:description" content="Explore my work on a tiny computer in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shanto OS">
+  <meta property="og:image" content="images/gallery/rec-studio.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/avatar.jpg">
+  <link rel="apple-touch-icon" href="images/avatar.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="wallpaper"></div>
+
+  <!-- Mac menu bar -->
+  <header class="menubar">
+    <div class="mb-left">
+      <button class="mb-item mb-logo" data-menu="brand" aria-label="Main menu"><span class="logo-dot">S</span></button>
+      <button class="mb-item mb-bold" id="mb-app" data-menu="app">Finder</button>
+      <button class="mb-item" data-menu="file">File</button>
+      <button class="mb-item" data-menu="edit">Edit</button>
+      <button class="mb-item" data-menu="view">View</button>
+      <button class="mb-item" data-menu="go">Go</button>
+      <button class="mb-item" data-menu="window">Window</button>
+      <button class="mb-item" data-menu="help">Help</button>
+      <button class="mb-item mb-bold" data-menu="recruit">For Recruiters</button>
+    </div>
+    <div class="mb-right">
+      <span class="mb-icon" aria-hidden="true"><svg viewBox="0 0 28 24"><rect x="2" y="7" width="21" height="10" rx="3"/><rect x="4.5" y="9.5" width="14" height="5" rx="1.2" fill="currentColor" stroke="none"/><path d="M25 10.5v3"/></svg></span>
+      <span class="mb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg></span>
+      <button class="mb-item mb-icon" id="mb-search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg></button>
+      <span class="mb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="5" rx="2.5"/><circle cx="15.5" cy="7.5" r="1.3" fill="currentColor"/><rect x="3" y="14" width="18" height="5" rx="2.5"/><circle cx="8.5" cy="16.5" r="1.3" fill="currentColor"/></svg></span>
+      <button class="mb-item" id="clock"></button>
+    </div>
+  </header>
+
+  <!-- iPhone status bar -->
+  <div class="sbar" aria-hidden="true">
+    <span id="sb-time"></span>
+    <i class="island"></i>
+    <span class="sb-r">
+      <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+      <svg viewBox="0 0 16 12"><path d="M8 11.5L5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.5 1.5a4.4 4.4 0 0 0-6.2 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.5 1.5a7.8 7.8 0 0 0-11 0z"/></svg>
+      <svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2.5" y="2.5" width="15" height="8" rx="2"/><path d="M24.5 4.5v4a2 2 0 0 0 0-4z" opacity=".4"/></svg>
+    </span>
+  </div>
+
+  <div id="desk-icons"></div>
+  <div id="widgets"></div>
+  <div id="home"></div>
+  <div id="windows"></div>
+  <nav class="dock" id="dock"></nav>
+
+  <div id="menu" class="menu" hidden></div>
+  <div id="spot" class="spot" hidden>
+    <div class="spot-box"><input id="spot-in" placeholder="Spotlight Search" autocomplete="off"><div id="spot-res"></div></div>
+  </div>
+
+  <div id="lock" class="overlay lock">
+    <div class="lock-date" id="lock-date"></div>
+    <div class="lock-time" id="lock-time"></div>
+    <div class="lock-user">
+      <div class="avatar big" id="lock-avatar"></div>
+      <div class="lock-name" id="lock-name"></div>
+      <button class="lock-btn" id="lock-btn">Click to enter →</button>
+      <span class="lock-hint">Swipe up to open</span>
+    </div>
+  </div>
+  <div id="boot" class="overlay boot" hidden><div class="boot-logo">S</div><div class="boot-bar"><span></span></div></div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
